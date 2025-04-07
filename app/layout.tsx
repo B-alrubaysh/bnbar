@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   },
   applicationName: 'Instant Background Remover',
   referrer: 'origin-when-cross-origin',
-  metadataBase: new URL('https://your-domain.com'),
   alternates: {
     canonical: '/',
   },
@@ -39,7 +38,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-domain.com',
     title: 'Instant Background Remover | Free Online Tool',
     description: 'Remove backgrounds from images instantly using AI. Free, fast and no signup required.',
     siteName: 'Instant Background Remover',
@@ -76,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} antialiased`}>
       <head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -84,7 +82,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen bg-gray-50`}>
         {children}
       </body>
     </html>
