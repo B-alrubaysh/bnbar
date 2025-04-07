@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 // Load Inter font with Latin subset for better performance
@@ -8,6 +8,14 @@ const inter = Inter({
   display: 'swap', // Ensure text is visible while font is loading
   variable: '--font-inter',
 })
+
+// Define viewport configuration
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#3B82F6',
+}
 
 // Define metadata for SEO and social sharing
 export const metadata: Metadata = {
@@ -57,14 +65,11 @@ export const metadata: Metadata = {
     description: 'Remove backgrounds from images instantly using AI. Free, fast and no signup required.',
     images: ['/images/og-image.svg'],
   },
-  // Theme color for browser UI (mobile browsers)
-  themeColor: '#3B82F6',
   // Verification for search consoles (replace with actual values when available)
   verification: {
     google: 'google-site-verification-code',
     yandex: 'yandex-verification-code',
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   category: 'technology',
 };
 
