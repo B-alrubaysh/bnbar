@@ -83,11 +83,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Configure the API route options
-export const config = {
-  api: {
-    // 20 second timeout as per requirements
-    bodyParser: false,
-    externalResolver: true,
-  },
-}; 
+// App Router route segment config
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const maxDuration = 20; 
