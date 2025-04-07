@@ -1,0 +1,51 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 🔒 security.mdc
+
+#### Goal:
+Protect the service from abuse, ensure safe file handling, and prevent API misuse while staying serverless and stateless.
+
+---
+
+#### Upload Security
+- ✅ Allow only `image/jpeg` and `image/png`
+- ✅ Enforce file size limit (max 5MB)
+- ✅ Use file signature (magic bytes) checks, not just extensions
+- ✅ Reject files with suspicious mime types or unknown headers
+
+---
+
+#### Rate Limiting
+- ✅ Middleware IP-based limiter (e.g., 10 req/min/IP)
+- ✅ Respond with `429 Too Many Requests` on abuse
+
+---
+
+#### API Safety
+- ✅ Timeout API calls to U^2-Net after 20 seconds max
+- ✅ Sanitize all forwarded data
+- ✅ Don’t expose your Replicate API key in frontend
+- ✅ Use `.env.local` for secrets
+
+---
+
+#### UI Protection
+- ✅ Escape all dynamic content rendered from response metadata (if shown)
+- ✅ Prevent drag-drop override of entire page with `e.preventDefault()`
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- File validation (type, size, signature)
+- IP rate-limiting
+- API key protection
+- Short timeouts for inference calls
+
+🚫 Avoid:
+- Blind trust in file headers
+- Leaving keys in client-side JS
+- Over-processing giant images

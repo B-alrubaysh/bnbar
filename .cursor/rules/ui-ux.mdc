@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 🎨 ui-ux.mdc
+
+#### Goal:
+Deliver a clean, responsive, and intuitive user experience focused on uploading and previewing background-removed images.
+
+---
+
+#### Core UX Rules
+- ✅ One-screen layout: Upload → Preview → Download
+- ✅ Responsive layout using Tailwind grid/flexbox
+- ✅ Instant feedback on drag-and-drop with status indicators (uploading, processing, done)
+- ✅ Use modal or lightbox to preview results
+- ✅ Always auto-scroll to result
+
+---
+
+#### UI Component Rules
+- ✅ Dropzone with drag-over highlight state
+- ✅ File type and size check before upload
+- ✅ Show loading animation during processing
+- ✅ Result panel with Download button (trigger `blob` download)
+- ✅ Add sample image option for demo/testing
+
+---
+
+#### Accessibility Rules
+- ✅ Keyboard accessible buttons
+- ✅ Use semantic HTML (form, button, section, etc.)
+- ✅ Use `aria-live` for processing feedback
+
+---
+
+#### Branding
+- ✅ Clean UI (whites/greys with one accent color)
+- ✅ Mobile-first layout
+- ✅ Include favicon + minimal meta tags
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- Fast, simple, responsive flow
+- Minimal UI distractions
+- User-friendly from upload to download
+
+🚫 Avoid:
+- Page reloads
+- Multi-step forms
+- Heavy frameworks (e.g., Material UI)

@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 🧪 testing.mdc
+
+#### Goal:
+Ensure all major flows (upload, process, download) work reliably with different image formats, sizes, and failure scenarios.
+
+---
+
+#### Manual Testing Checklist
+- ✅ Upload `.jpeg`, `.png` images under 5MB
+- ✅ Try oversized images (>5MB) and expect proper rejection
+- ✅ Drag-and-drop interaction works on mobile and desktop
+- ✅ Test preview and download buttons on all major browsers
+- ✅ Retry flow: after failure, retrying works correctly
+
+---
+
+#### Automated Tests (if applicable)
+- ✅ Mock upload -> process -> return flow via Playwright or Cypress
+- ✅ Ensure blob response can be downloaded by the user
+- ✅ Confirm frontend rejects unsupported file formats
+- ✅ Clear all temp data after each test (no memory/file leaks)
+
+---
+
+#### Edge Case Testing
+- Corrupt image file
+- Drag/drop multiple files
+- Mobile camera capture image test
+- Rapid multiple uploads (rate-limit stress)
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- Upload → Process → Download is consistently working
+- Error messages are clear
+- No leftover temp files, cache, or blob leaks
+
+🚫 Avoid:
+- Relying only on unit tests — user flow > function calls

@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 🧠 backend.mdc
+
+#### Goal:
+Define all serverless backend behaviors using Vercel + U^2-Net API (hosted on Replicate or similar). No database, no file storage.
+
+---
+
+#### Core Backend Functions
+- `POST /api/remove-bg`
+  - Accepts: `multipart/form-data` (only `.jpeg`, `.png`)
+  - Validates file size ≤ 5MB
+  - Forwards image to U^2-Net inference API
+  - Returns: processed image blob
+
+---
+
+#### Backend Rules
+- ✅ Use `NextResponse.json()` or `NextResponse.blob()` for handling output
+- ✅ Stream uploads directly to U^2-Net, do not store locally
+- ✅ Use `FormData` for forwarding requests to Replicate
+- ✅ Validate file extension and mime-type before processing
+- ✅ Rate-limit via middleware (e.g., 10 req/min per IP)
+
+---
+
+#### Error Handling
+- Return clear HTTP errors:
+  - `400` for bad image
+  - `413` for too large
+  - `500` if model fails
+- Use structured error responses: `{ error: string, statusCode: number }`
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- Stateless processing
+- Proper validation + error reporting
+- Direct piping to model
+- Use only supported file formats
+
+🚫 Avoid:
+- Writing to `/tmp`
+- Storing any images
+- Uncaught exceptions

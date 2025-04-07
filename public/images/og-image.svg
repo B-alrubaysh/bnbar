@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#3B82F6"/>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(550, 230)">
+    <rect width="100" height="100" rx="16" fill="#3B82F6"/>
+    <path d="M25 50H75" stroke="white" stroke-width="8" stroke-linecap="round"/>
+    <path d="M50 25L50 75" stroke="white" stroke-width="8" stroke-linecap="round"/>
+    <path d="M20 20L80 80" stroke="white" stroke-width="6" stroke-linecap="round"/>
+    <path d="M80 20L20 80" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="380" font-family="'Arial', sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#1E293B">
+    Instant Background Remover
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="430" font-family="'Arial', sans-serif" font-size="24" text-anchor="middle" fill="#64748B">
+    Remove backgrounds from images in seconds with AI
+  </text>
+</svg> 

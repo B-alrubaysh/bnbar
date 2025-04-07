@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 🚀 deployment.mdc
+
+#### Goal:
+Ensure optimal deployment for speed, uptime, and cost-efficiency using Vercel.
+
+---
+
+#### Vercel Configuration
+- ✅ Use default Serverless Functions (API routes)
+- ✅ Use `vercel.json` to specify routes and headers:
+```json
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Content-Encoding", "value": "br" }
+      ]
+    }
+  ],
+  "functions": {
+    "api/remove-bg/route.ts": {
+      "maxDuration": 20
+    }
+  }
+}
+```
+
+---
+
+#### Static Optimization
+- ✅ Enable Image Optimization in `next.config.js`
+- ✅ Use ISR or static pages only (no SSR needed)
+- ✅ Purge unused CSS in Tailwind
+
+---
+
+#### Vercel Best Practices
+- ✅ Auto-deploy from GitHub main branch
+- ✅ Add environment variables for Replicate keys only in dashboard
+- ✅ Enable analytics for monitoring
+- ✅ Ping API route periodically to prevent cold starts
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- API max duration
+- CDN-cached assets
+- Proper compression
+- Fully static pages with dynamic API
+
+🚫 Avoid:
+- Dynamic SSR pages
+- Hardcoded secrets in source
+- Uploading to static assets

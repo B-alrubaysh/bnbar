@@ -1,0 +1,60 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### 📁 project-structure.mdc
+
+#### Goal:
+Ensure a clean, maintainable structure for a lightweight background remover app using U^2-Net, Cursor, Vercel, and Supabase (for hosting the API layer only).
+
+---
+
+#### Folder Structure
+```
+root/
+├── app/                      # Next.js App Directory
+│   ├── page.tsx             # Main page
+│   └── api/                 # API routes (Next.js Serverless functions)
+│       └── remove-bg/route.ts # Background removal endpoint
+├── components/              # Reusable UI components (Dropzone, Preview, etc.)
+├── lib/                     # Utility functions (image buffer, mime-type validation)
+├── public/                  # Static assets (favicon, sample images)
+├── styles/                  # Tailwind or global styles
+├── types/                   # TypeScript type definitions
+├── cursor/                  # Cursor project rules
+│   └── *.mdc                # Modular cursor rules
+└── vercel.json              # Vercel config for edge/serverless deployment
+```
+
+---
+
+#### Design Principles
+- Keep components **fully client-side** unless they interact with U^2-Net.
+- Serverless functions should only handle:
+  - Image uploads
+  - Forwarding to U^2-Net (hosted on Replicate or similar)
+  - Returning processed image (no storage)
+- Avoid monolithic components. Use modular, composable UI.
+- Ensure all static UI is SSR-compatible for performance.
+
+---
+
+#### Naming Conventions
+- Use kebab-case for folder and file names.
+- Use PascalCase for components.
+- Prefix server-side logic with `server-` or place them in `/api/`.
+
+---
+
+#### Rule Summary
+✅ Enforced:
+- Modular code structure
+- SSR-compatible static content
+- Clean separation of client-side and serverless logic
+- Cursor rules stored in `/cursor/` and scoped by domain
+
+🚫 Avoid:
+- Mixing UI and API logic
+- Storing uploaded files unless needed (stateless approach)
+- Global state libraries (too heavy for this app's scope)

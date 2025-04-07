@@ -1,0 +1,16 @@
+{
+  "name": "Instant Background Remover",
+  "short_name": "BG Remover",
+  "description": "Remove backgrounds from images instantly using AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    }
+  ]
+} 
