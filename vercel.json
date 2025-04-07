@@ -31,10 +31,5 @@
     "api/remove-bg/route.ts": {
       "maxDuration": 20
     }
-  },
-  "compression": {
-    "brotli": {
-      "enable": true
-    }
   }
 } 
