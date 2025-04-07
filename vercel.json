@@ -28,7 +28,7 @@
     }
   ],
   "functions": {
-    "api/remove-bg/route.ts": {
+    "app/api/remove-bg/route.ts": {
       "maxDuration": 20
     }
   }
